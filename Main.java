@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 import org.json.*;
 
-public class Main {
+public class Main { 
     
     // Decode value from any base to decimal (handles alphanumeric digits)
     public static long decodeFromBase(String value, int base) {
@@ -43,7 +43,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             // Read JSON file from same directory (update filename if needed)
-            File file = new File("org.json");  // Assumes file is in same dir
+            File file = new File("testcase.json");  // Assumes file is in same dir
             FileReader reader = new FileReader(file);
             
             // Parse JSON using org.json
