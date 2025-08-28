@@ -4,13 +4,12 @@ import org.json.*;
 
 public class Main { 
     
-    // Decode value from any base to decimal (handles alphanumeric digits)
     public static long decodeFromBase(String value, int base) {
         long result = 0;
         long power = 1;
         
         for (int i = value.length() - 1; i >= 0; i--) {
-            char digit = Character.toLowerCase(value.charAt(i));  // Case-insensitive
+            char digit = Character.toLowerCase(value.charAt(i));  
             int digitValue = (digit >= '0' && digit <= '9') ? 
                              digit - '0' : digit - 'a' + 10;
             if (digitValue >= base || digitValue < 0) {
@@ -22,7 +21,7 @@ public class Main {
         return result;
     }
     
-    // Lagrange interpolation to find polynomial value at target
+    // Lagrange 
     public static double lagrangeInterpolation(int[] x, long[] y, int target) {
         double result = 0;
         int n = x.length;
@@ -42,11 +41,11 @@ public class Main {
     
     public static void main(String[] args) {
         try {
-            // Read JSON file from same directory (update filename if needed)
-            File file = new File("testcase.json");  // Assumes file is in same dir
+            // Read JSON 
+            File file = new File("org.json");  
             FileReader reader = new FileReader(file);
             
-            // Parse JSON using org.json
+            // Parse JSON
             JSONObject json = new JSONObject(new JSONTokener(reader));
             
             JSONObject keys = json.getJSONObject("keys");
@@ -84,7 +83,7 @@ public class Main {
             // Find secret (constant term at x=0)
             double secret = lagrangeInterpolation(xArray, yArray, 0);
             
-            System.out.println("\n🔐 Secret (c): " + Math.round(secret));
+            System.out.println("\n Secret (c): " + Math.round(secret));
             
         } catch (Exception e) {
             e.printStackTrace();
